@@ -1,0 +1,17 @@
+---
+title: "Documentation : App. Information on Diverse Countries"
+author: "Manu"
+date: "29/11/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+This application was created as a training exercice. It shows diverse informations on countries, in order to get some interactions between the user and the server response.
+
+## Instruction for running the app
+This application is quite straightforward, you just hav to run the application and follow the instructions given in the application itself. The application can be accessed by clicking on the following link: [Application: Information on diverse countries](https://manuaccount.shinyapps.io/testDispo/)
+

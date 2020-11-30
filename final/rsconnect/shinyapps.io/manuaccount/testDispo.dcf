@@ -1,0 +1,13 @@
+name: testDispo
+title: testDispo
+username:
+account: manuaccount
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3304664
+bundleId: 3918511
+url: https://manuaccount.shinyapps.io/testDispo/
+when: 1606640986.56561
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: bagging.R|baggingTrial.R|scalePredictionBackForth.R
