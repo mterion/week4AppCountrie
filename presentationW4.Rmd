@@ -1,0 +1,85 @@
+---
+title: 'Presentation of the Application'
+author: "Manu"
+date: "29/11/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(dplyr)
+library(kableExtra)
+```
+
+## Introduction
+
+This is a presentation regarding an application developped by the author, named "Diverse information on countries". 
+
+The goal of this App is to demonstrate the capabilities of shiny, with the use of diverse plotly graphs and especially it's capacity related to the integration of **reactive Machine Learning models**.
+
+## Data
+The data used come from two main sources, the first one is [Techslides](http://techslides.com/list-of-countries-and-capitals).
+
+
+```{r dfCap, fig.height = 4, fig.width= 5}
+path1 <- ("./final/data/country-capitals.csv") 
+df <- read.csv(path1, stringsAsFactors = FALSE)
+df <- df %>%
+        rename(Country = CountryName) %>%
+        rename(Capital = CapitalName) %>%
+        rename(Latitude = CapitalLatitude) %>%
+        rename(Longitude = CapitalLongitude) %>%
+        rename(Continent = ContinentName)
+
+dfTable <- df %>%
+        slice_head(n = 5)
+
+dfTable %>%
+        kable(format = "html", escape = FALSE, align = c("l", "c", "c", "c", "c", "c")) %>%
+        kable_styling(bootstrap_options = c("striped", "hover", "responsive"))
+
+```
+
+## Summary of the data
+
+```{r df, echo = TRUE}
+summary(df)
+```
+
+
+## Data
+The second source is [World Bank](https://datacatalog.worldbank.org/).
+
+```{r dfPop, fig.height = 4, fig.width= 5}
+path1 <- ("./final/data/gdpPop.csv") 
+dfPop <- read.csv(path1, stringsAsFactors = FALSE)
+dfPop <- dfPop %>%
+        rename(Year = ï..year) %>%
+        rename(Code = countryCode) %>%
+        rename(Mil.exp = militaryExpenditure) %>%
+        rename(Country = country) %>%
+        rename(GDP = gdp) %>%
+        rename(Population = population)
+
+dfPopTable <- dfPop %>%
+        slice_head(n = 5)
+
+dfPopTable %>%
+        kable(format = "html", escape = FALSE, align = c("l", "c", "c", "c", "c", "c")) %>%
+        kable_styling(bootstrap_options = c("striped", "hover", "responsive"))
+
+
+```
+## Summary of the data
+
+```{r wbank, echo = TRUE}
+summary(dfPop)
+```
+
+## Link to the application
+Having now the data in mind, I encourage you to try and and use the application by clicking on the following link: [Diverse information on countries](https://manuaccount.shinyapps.io/testDispo/).
+
+The server.R and ui.R code have been stored on [github](https://github.com/mterion/week4AppCountrie) if needed
+
+Thank you very much for your attention !
+
